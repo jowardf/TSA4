@@ -5,6 +5,11 @@ body {
     background-size: cover;
 }
 
+.head-title {
+    color: white;
+    letter-spacing: 5px;
+    filter: drop-shadow(0 8px 8px #FF5F1F);
+}
 .menu-container {
     display: flex;
     justify-content: center;
@@ -18,6 +23,11 @@ body {
     overflow: hidden;
     height: 300px; }
 
+.menu-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .menu-item:hover {
     transform: scale(1.05); }
 
@@ -36,8 +46,15 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
-    display: none; }
+    display: none;
+}
 
+.card {
+    background: rgba( 255, 255, 255, 0.2 );
+    box-shadow: 0 8px 32px 0 rgba( 250, 250, 250, 0.3 );
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 3px );
+}
 .card-body {
     position: absolute;
     bottom: -100%;
@@ -51,3 +68,40 @@ body {
 
 .menu-item:hover .card-body {
     bottom: 0; }
+
+.detailed-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.detailed-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.detailed-info {
+    padding: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

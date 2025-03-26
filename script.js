@@ -1,23 +1,36 @@
 function focusCard(selectedCard) {
-    document.getElementById('menuContainer').classList.add('focus-card');
+    const menuContainer = document.getElementById('menuContainer');
+    const backButton = document.getElementById('backButton');
+
+    // Hide other cards
     document.querySelectorAll('.menu-item').forEach(card => {
-        if (card !== selectedCard) {
-            card.classList.add('hidden');
-        }
+        card.style.display = 'none';
     });
-    setTimeout(() => {
-        document.querySelectorAll('.hidden').forEach(card => card.style.display = 'none');
-    }, 500);
-    document.getElementById('backButton').style.display = 'block';
+
+    // Create detailed card
+    const detailedCard = document.createElement('div');
+    detailedCard.classList.add('detailed-card');
+
+    const imgSrc = selectedCard.querySelector('img').src;
+    const title = selectedCard.querySelector('.card-title').textContent;
+    const description = selectedCard.querySelector('.card-text').textContent;
+
+    detailedCard.innerHTML = `
+        <img src="${imgSrc}" class="detailed-img" alt="${title}">
+        <div class="detailed-info">
+            <h2>${title}</h2>
+            <p>${description} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    `;
+
+    menuContainer.appendChild(detailedCard);
+    backButton.style.display = 'block';
 }
 
 function showMainMenu() {
+    document.querySelector('.detailed-card').remove();
     document.querySelectorAll('.menu-item').forEach(card => {
         card.style.display = 'block';
-        setTimeout(() => {
-            card.classList.remove('hidden');
-        }, 50);
     });
-    document.getElementById('menuContainer').classList.remove('focus-card');
     document.getElementById('backButton').style.display = 'none';
 }
