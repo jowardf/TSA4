@@ -19,7 +19,7 @@ function focusCard(selectedCard) {
         <img src="${imgSrc}" class="detailed-img" alt="${title}">
         <div class="detailed-info">
             <h2>${title}</h2>
-            <p>${description} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>${description}</p>
         </div>
     `;
 
